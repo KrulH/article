@@ -3,8 +3,8 @@
 
     <h1>Write a New Article</h1>
     <hr/>
-   {!! Form::open(['url' => 'articles']) !!}
-           <!-- Title Form Input -->
+    {!! Form::open(['url' => 'articles']) !!}
+            <!-- Title Form Input -->
     <div class="form-group">
         {{ Form::label('title', 'Title:') }}
         {{ Form::text('title', null, ['class' => 'form-control']) }}
@@ -14,7 +14,12 @@
         {{ Form::label('body', 'Body:') }}
         {{ Form::textarea('body', null, ['class' => 'form-control']) }}
     </div>
-   {{ Form::submit('Add Article',['class' => 'btn btn-primary form-control']) }}
-   {!! Form::close() !!}
+    <!-- Published_at Form Input -->
+    <div class="form-group">
+        {{ Form::label('published_at', 'Published On:') }}
+        {{ Form::input('date','published_at', date('Y-m-d'), ['class' => 'form-control']) }}
+    </div>
+    {{ Form::submit('Add Article',['class' => 'btn btn-primary form-control']) }}
+    {!! Form::close() !!}
 
 @stop
