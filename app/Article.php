@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
-    protected $fillable = ['title','body','published_at'];
+    protected $fillable = ['title','body','published_at','user_id'];
     public function scopePublished($query)
     {
         $query->where('published_at','<=',Carbon::now());
@@ -21,4 +21,8 @@ class Article extends Model
         $this->attributes['published_at'] = Carbon::parse($date);
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
