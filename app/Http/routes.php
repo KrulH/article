@@ -13,3 +13,8 @@ Route::get('contact', 'PagesController@contact');
 //Route::get('articles/{id}', 'ArticlesController@update');
 
 Route::resource('articles', 'ArticlesController');
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController'
+]);
