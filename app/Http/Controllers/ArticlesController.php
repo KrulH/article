@@ -7,6 +7,7 @@ use App\Http\Requests\ArticleRequest;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 class ArticlesController extends Controller
@@ -35,6 +36,7 @@ class ArticlesController extends Controller
         $article = new Article($request->all());
         Auth::user()->articles()->save($article);
         // Article::create($request->all());
+        Session::flash('flash_message','Your message has been created!');
         return redirect('articles');
     }
     public function edit($id)
