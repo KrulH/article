@@ -39,7 +39,7 @@ class ArticlesController extends Controller
         Auth::user()->articles()->save($article);
 
         // Article::create($request->all());
-        $article->tags()->sync($request->input('tag_list'));
+        $article->tags()->sync($request->input('tag_list')?: []);
         Session::flash('flash_message','Your message has been created!');
         return redirect('articles');
     }
